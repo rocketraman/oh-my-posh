@@ -59,6 +59,22 @@
           "type": "node"
         },
         {
+          "type": "docker",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "foreground": "#000000",
+          "background": "#0B59E7",
+          "template": " {{ if ne \"unix:///run/user/1000/podman/podman.sock\" .Context }} REMOTE{{ end }}"
+        },
+        {
+          "type": "kubectl",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "foreground": "#000000",
+          "background": "#ebcc34",
+          "template": " ﴱ {{ truncE 20 .Context }}"
+        },
+        {
           "background": "#8ED1F7",
           "foreground": "#111111",
           "powerline_symbol": "\ue0b0",
@@ -218,6 +234,40 @@
         }
       ],
       "type": "rprompt"
+    }
+  ],
+  "tooltips": [
+    {
+      "type": "gcp",
+      "tips": [
+        "gcloud",
+        "kubectl",
+        "kustomize",
+        "k9s"
+      ],
+      "style": "diamond",
+      "foreground": "#193549",
+      "background": "#fffb38",
+      "leading_diamond": "",
+      "trailing_diamond": "",
+      "template": "  {{.Project}} :: {{.Account}} ",
+      "options": {
+        "fetch_status": true,
+        "fetch_upstream_icon": true
+      }
+    },
+    {
+      "type": "aws",
+       "tips": [
+        "aws",
+        "eksctl"
+      ],
+      "style": "diamond",
+      "foreground": "#193549",
+      "background": "#fffb38",
+      "leading_diamond": "",
+      "trailing_diamond": "",
+      "template": "  {{.Profile}}{{if .Region}}@{{.Region}}{{end}}"
     }
   ],
   "console_title_template": "{{ .Shell }} in {{ .Folder }}",
